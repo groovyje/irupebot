@@ -69,12 +69,17 @@ def F1(update, context):
         text = 'F1 Instagram',
         url = 'https://www.instagram.com/f1/'
     )
+    button6 = InlineKeyboardButton(
+        text = 'G.O.A.T',
+        url = 'https://www.instagram.com/lewishamilton/'
+        
+    )
     update.message.reply_text(
         text = 'Click para información',
         reply_markup = InlineKeyboardMarkup([
             [button1, button2],
             [button3, button4],
-            [button5]
+            [button5, button6]
         ])
     )
 
@@ -149,7 +154,7 @@ def addEvent(update, context):
     userId = update.effective_user['id']
     args = context.args
 
-    if userisAdmin(chatId, userId, bot) == True:
+    if userName(chatId, userId, bot) == True:
         if len(args) == 0:
             logger.info(f'El usuario {userName} no ha ingresado argumentos')
             bot.sendMessage(
